@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Baloo Bhaijaan 2"
+}
+::selection {
+	color: yellow;
+	background: green
+}
+body {
+  background: aliceblue;
+  direction: rtl;
+}
+header {
+  background: royalblue;
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+}
+header ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+header li {
+  list-style-type: none;
+  padding: 5px;
+  font-size: 18px;
+}
+header li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 18px;
+}
+header a:hover {
+  color: darkkhaki;
+}
+small {
+  color: red;
+}
+.d-flex {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+  align-items: center
+}
+.content {
+  width: 270px;
+  margin: 80px 10px;
+  background: white;
+  padding: 8px;
+  font-size: 18px;
+  box-shadow: 0 0 10px 3px grey;
+  border-radius: 8px;
+  align-items: center;
+  line-height: 1.6;
+  transition: 0.5s
+}
+.content:hover {
+  transform: scale(1.05);
+  border: none;
+  box-shadow: none
+}
+.content h2 {
+  font-size: 23px;
+  color: darkgreen;
+  padding: 5px;
+  margin: 20px auto;
+  text-align: center;
+  width: fit-content;
+}
+.content h4 {
+  margin-top: 10px;
+  color: blue
+}
+.gardens {
+  width: 75%;
+  height: 200px;
+  margin: 50px auto 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-size: cover;
+  overflow: hidden;
+  transition: 0.5s;
+  border: 3px solid white
+}
+.gardens img {
+  width: 100%;
+  height: 100%;
+}
+.gardens:hover {
+  transform: rotate(5deg) scale(1.1);
+  filter: hue-rotate(20deg) brightness(120%)
+}
+.d-flex2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  width: 300px;
+}
+.dark {
+  border: none;
+  background: white;
+  height: 35px;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 3px
+}
+.light {
+  border: none;
+  background: white;
+  height: 35px;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 3px;
+  display: none
+}
+.dark:hover, .light:hover {
+  cursor: pointer
+}
+.inputs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 40px;
+  margin: 30px 0
+}
+.inputs input {
+  outline: none;
+  border: 2px solid grey;
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+  font-size: 17px;
+  width: 58%;
+  height: 30px;
+  margin: auto
+}
+h1 {
+  font-size: 25px;
+  color: darkred;
+  padding: 5px;
+  margin: 30px 0;
+  border-bottom: 2px solid greenyellow;
+  width: fit-content;
+}
+b {
+  margin: 10px 0;
+}
+.content ul li {
+  margin: 5px 10px;
+  color: violet;
+}
+.content ul li:hover {
+  color: purple
+}
+.plants {
+  width: 80%;
+  margin: auto;
+}
+.plants h2 {
+display: block;
+color: darkgreen;
+text-align: center;
+width: 70%;
+margin: 40px auto;
+padding: 10px;
+box-shadow: 0 0 5px 3px gray;
+background: white;
+transition: 0.5s
+}
+.plants h2:hover, h2.colored:hover {
+  cursor: pointer
+}
+.plants h2:hover {
+  color: blue;
+  box-shadow: 0 0 5px 3px aqua
+}
+h2.colored {
+  color: blue;
+  box-shadow: 0 0 5px 3px aqua;
+  text-align: center;
+  width: 70%;
+  margin: 40px auto;
+  padding: 10px;
+  background: white;
+  display: none;
+  transition: 0.5s
+}
+h2.colored:hover {
+  color: darkgreen;
+  box-shadow: 0 0 5px 3px gray
+}
+#up {
+  border: none;
+  border-radius: 10px;
+  background: darkred;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  z-index: 700;
+  padding-bottom: 5px;
+  transform: translateX(100px);
+  transition: 0.5s
+}
+#up:hover {
+  background: yellow;
+  color: black;
+  cursor: pointer
+}
+#main-links-box {
+  display: flex;
+  flex-wrap: wrap
+}
+.main-links {
+  text-decoration: none;
+  color: royalblue;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 25px auto;
+  width: 40%;
+  height: 40px;
+  border-bottom: 2px solid grey;
+  padding: 3px
+}
+.main-links:hover {
+	border-color: blue;
+	cursor: pointer
+}
+.open-menu {
+  width: 35px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.open-menu p {
+  width: 100%;
+  height: 3px;
+  margin: 3px 0;
+  background-color: white;
+  transition: 0.5s
+}
+.open-menu:hover p {
+	background: darkkhaki
+}
+.close-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  font-size: 15px;
+  display: none;
+}
+.close-menu p {
+  font-size: 40px;
+  color: white;
+  transition: 0.5s
+}
+.close-menu:hover p {
+  color: red;
+}
+.close-menu:hover p:hover, .open-menu:hover {
+  cursor: pointer
+}
+.par {
+  display: block;
+  color: gold;
+  font-size: 17px;
+  text-align: center;
+  font-weight: bolder;
+  padding: 5px;
+  margin: 5px auto;
+  width: 70%;
+  height: 40px;
+  border-bottom: 2px solid aqua;
+  text-decoration: none;
+  transition: 0.5s
+}
+.par:hover {
+	background: green;
+	color: yellow;
+	cursor: pointer
+}
+#circles {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px auto 0;
+  height: 50px
+}
+.par-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid white;
+  opacity: 0.6;
+  transition: 0.3s
+}
+.par-circle:hover {
+	transform: scale(1.2);
+	opacity: 1;
+	cursor: pointer
+}
+#boxOne {
+  background: darkred
+}
+#boxTwo {
+  background: darkgreen
+}
+#boxThree {
+  background: darkblue
+}
+#boxFour {
+  background: gold
+}
+.box {
+  width: 260px;
+  height: 350px;
+  background: white;
+  box-shadow: 0 0 10px 1px gray;
+  transition: 0.5s;
+  border-radius: 5px 20px;
+  position: relative;
+  margin: 30px 20px;
+}
+.box:hover {
+  transform: scale(1.1);
+  cursor: pointer
+}
+.box img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  position: absolute;
+  right: 50%;
+  top: 30px;
+  transform: translateX(50%)
+}
+.box img:hover {
+  filter: brightness(120%)
+}
+.box a { 
+  width: 80%;
+  text-decoration: none;
+  color: darkblue;
+  transition: 0.5s;
+  font-size: 18px;
+  display: inline-block;
+  padding: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: auto;
+}
+.box a:hover {
+  color: royalblue;
+  cursor: pointer
+}
+.headingLink:hover {
+  cursor: pointer;
+  color: #08a0a0
+}
+@media (max-width: 800px) {
+	.d-flex {
+		flex-direction: column;
+}
+.d-flex2 {
+  margin: auto;
+}
+.content {
+	width: 95%;
+  margin: 70px auto;
+}
+.box {
+	margin: 30px auto;
+}
+}

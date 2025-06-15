@@ -1,0 +1,838 @@
+<!DOCTYPE HTML>
+<html lang = "ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الطبيعة والنباتات || معرض الصور</title>
+<style>
+* {
+	font-family: "Baloo Bhaijaan 2"
+}
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: fixed
+}
+.cont {
+	width: fit-content;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+.main-img {
+	width: 350px;
+	height: 350px
+}
+.main-img img, canvas {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px
+}
+.buttons {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 8px;
+	margin: 20px auto;
+	width: 80%
+}
+.buttons button, .buttons a {
+	display: inline-block;
+	background: green;
+	color: white;
+	padding: 10px 5px;
+	width: 100px;
+	height: fit-content;
+	border: none;
+	border-radius: 8px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 17px;
+	transition: 0.5s
+}
+#reset {
+	padding: 10px;
+	width: 130px
+}
+.buttons button:hover, .buttons a:hover {
+	cursor: pointer;
+	background: #02c402;
+	transform: scale(1.2)
+}
+.images-box {
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	width: 12%;
+	height: 100vh;
+	overflow-y: auto
+}
+.images-box img {
+	width: 90px;
+	height: 80px;
+	border-radius: 5px;
+	margin: 5px;
+	border: 1px solid goldenrod;
+	transition: 0.5s
+}
+.images-box img:hover {
+	transform: scale(1.1)
+}
+.filters {
+	position: absolute;
+	left: 0;
+	top: 100px;
+	height: 100vh;
+	width: 50%
+}
+.filters ul {
+	display: flex;
+	flex-direction: column;
+	gap: 20px
+}
+.filters li {
+	list-style: none
+}
+.filters label {
+	text-transform: capitalize;
+	font-size: 18px
+}
+.back {
+  position: fixed;
+  z-index: 5;
+  left: 10px;
+  top: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: royalblue;
+  width: 30px;
+  height: 25px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bolder;
+  transition: 0.5s
+}
+.back:hover {
+  text-align: left;
+  background: yellow;
+  color: initial
+}
+#up {
+  border: none;
+  border-radius: 10px;
+  background: darkred;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  z-index: 700;
+  padding-bottom: 5px;
+  transform: translateX(100px);
+  transition: 0.5s
+}
+#up:hover {
+  background: yellow;
+  color: black
+}
+@media (max-width: 800px) {
+	.container {
+		flex-direction: column;
+		position: absolute;
+	}
+	.cont {
+	width: 100%;
+	height: fit-content;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: auto
+}
+	.main-img {
+	width: 100%;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-35%);
+	margin: auto
+}
+	.main-img img, canvas {
+	width: 70%;
+	height: 100%;
+	margin: auto;
+	border-radius: 8px
+}
+.buttons {
+	flex-direction: column;
+	width: 100%;
+	margin: 0 auto;
+	position: absolute;
+	top: 320px;
+}
+.buttons button, .buttons a {
+	display: block;
+	margin: 0 auto;
+	padding: 10px 5px;
+	font-size: 18px
+}
+#reset {
+	width: 80%;
+	height: 35px;
+	padding: 0
+}
+#download {
+	height: 18px;
+	width: 78%
+}
+.filters {
+	top: 420px;
+	height: fit-content;
+	width: 100%;
+	display: flex;
+	justify-content: center
+}
+.filters ul {
+	gap: 30px
+}
+.filters ul li {
+	width: 100%
+}
+.filters label {
+	margin: 0 10px;
+}
+.images-box {
+	position: absolute;
+	top: 880px;
+	justify-content: center;
+	width: 100%;
+	height: fit-content;
+	margin: auto
+}
+.images-box img {
+	display: block;
+	width: 35%;
+	height: 150px;
+	margin: 7px auto
+}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Cairo:wght@200..1000&family=Lateef:wght@200;300;400;500;600;700;800&family=Noto+Sans+Imperial+Aramaic&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<button id = "up" onclick = "upButton()">&uparrow;</button>
+<a href="index.html" class = "back">&longleftarrow;</a>
+<div class="container">
+<div class="filters">
+<ul>
+<li>
+<label for="saturate">Saturate</label>
+<input type="range" id="saturate" min="0" max="200" value="100">
+</li>
+<li>
+<label for="contrast">Contrast</label>
+<input type="range" id="contrast" min="0" max="200" value="100">
+</li>
+<li>
+<label for="brightness">Brightness</label>
+<input type="range" id="brightness" min="0" max="200" value="100">
+</li>
+<li>
+<label for="sepia">Sepia</label>
+<input type="range" id="sepia" min="0" max="200" value="0">
+</li>
+<li>
+<label for="grayscale">Grayscale</label>
+<input type="range" id="grayscale" min="0" max="1" value="0" step="0.1">
+</li>
+<li>
+<label for="blur">Blur</label>
+<input type="range" id="blur" min="0" max="10" value="0" step="0.1">
+</li>
+<li>
+<label for="hue-rotate">Hue Rotate</label>
+<input type="range" id="hue-rotate" min="0" max="360" value="0">
+</li>
+<li>
+<label for="invert">Invert</label>
+<input type="range" id="invert" min="0" max="100" value="0" step="100">
+</li>
+</ul>
+</div>
+<div class="cont">
+<div class="main-img">
+<img src = "باذنجان.jpg">
+<canvas id="canva"></canvas>
+</div>
+<div class="buttons">
+	<button id="reset" onclick="resetImage()">استعادة الصورة</button>
+	<a download="image" id="download">تحميل</a>
+</div>
+</div>
+<div class="images-box">
+<img src = "باذنجان.jpg">
+<img src = "بطاطس.jpg">
+<img src = "بطاطا.jpg">
+<img src = "بصل.jpg">
+<img src = "بروكلي.jpg">
+<img src = "بنجر.jpg">
+<img src = "ثوم.jpg">
+<img src = "جرجير.jpg">
+<img src = "جزر.jpg">
+<img src = "خس.jpg">
+<img src = "خرشوف.jpg">
+<img src = "خيار.jpg">
+<img src = "زيتون.jpg">
+<img src = "سبانخ.jpg">
+<img src = "سلق.jpg">
+<img src = "شبت.jpg">
+<img src = "شمر.jpg">
+<img src = "عدس.jpg">
+<img src = "فجل.jpg">
+<img src = "فلفل_أخضر.jpg">
+<img src = "فلفل_أحمر.jpg">
+<img src = "قرنبيط.jpg">
+<img src = "قرع.jpg">
+<img src = "قلقاس.jpg">
+<img src = "كرفس.jpg">
+<img src = "كوسة.jpg">
+<img src = "كرنب.jpg">
+<img src = "كراث.jpg">
+<img src = "لفت.jpg">
+<img src = "ملوخية.jpg">
+<img src = "ورق_العنب.jpg">
+<img src = "أناناس.jpg">
+<img src = "أفوكادو.jpg">
+<img src = "كمثرى.jpg">
+<img src = "ببايا.jpg">
+<img src = "برتقال.jpg">
+<img src = "برقوق.jpg">
+<img src = "بطيخ.jpg">
+<img src = "تمر.jpg">
+<img src = "تين.jpg">
+<img src = "تفاح.jpg">
+<img src = "توت.jpg">
+<img src = "خوخ.jpg">
+<img src = "خروب.jpg">
+<img src = "رمان.jpg">
+<img src = "تين_شوكي.jpg">
+<img src = "طماطم.jpg">
+<img src = "عنب.jpg">
+<img src = "فراولة.jpg">
+<img src = "كرز.jpg">
+<img src = "كيوي.jpg">
+<img src = "ليمون.jpg">
+<img src = "مانجو.jpg">
+<img src = "مشمش.jpg">
+<img src = "جوافة.jpg">
+<img src = "موز.jpg">
+<img src = "يوسفي.jpg">
+<img src = "يقطين.jpg">
+<img src = "أرز.jpg">
+<img src = "بازلاء.jpg">
+<img src = "بامية.jpg">
+<img src = "ترمس.jpg">
+<img src = "حمص.jpg">
+<img src = "ذرة.jpg">
+<img src = "عدس.jpg">
+<img src = "فاصوليا.jpg">
+<img src = "فول.jpg">
+<img src = "لوبيا.jpg">
+<img src = "فول_أخضر.jpg">
+<img src = "بندق.jpg">
+<img src = "بلوط.jpg">
+<img src = "عين_الجمل.jpg">
+<img src = "لوز.jpg">
+<img src = "كاجو.jpg">
+<img src = "فستق.jpg">
+<img src = "صنوبر.jpg">
+<img src = "ماكاديميا.jpg">
+<img src = "جوز_الهند.jpg">
+<img src = "كستناء.jpg">
+<img src = "حب_القرع.jpg">
+<img src = "حب_البطيخ.jpg">
+<img src = "حب_دوار_الشمس.jpg">
+<img src = "حب_الكتان.jpg">
+<img src = "حب_الرشاد.jpg">
+<img src = "سوداني.jpg">
+<img src = "بذور_الشيا.jpg">
+<img src = "زبيب.jpg">
+<img src = "أرقطيون.jpg">
+<img src = "روزماري.jpg">
+<img src = "بابونج.jpg">
+<img src = "بردقوش.jpg">
+<img src = "ريحان.jpg">
+<img src = "حلبة.jpg">
+<img src = "لافندر.jpg">
+<img src = "زعتر.jpg">
+<img src = "زعرور.jpg">
+<img src = "زنجبيل.jpg">
+<img src = "سنامكي.jpg">
+<img src = "سواك.jpg">
+<img src = "شاي_أخضر.jpg">
+<img src = "شبت.jpg">
+<img src = "شمر.jpg">
+<img src = "تمر_هندي.jpg">
+<img src = "كاري.jpg">
+<img src = "كركم.jpg">
+<img src = "كراوية.jpg">
+<img src = "كزبرة.jpg">
+<img src = "مرمرية.jpg">
+<img src = "ناردين.jpg">
+<img src = "نعناع.jpg">
+<img src = "هندباء.jpg">
+<img src = "يانسون.jpg">
+<img src = "زعفران.jpg">
+<img src = "بنفسج.jpg">
+<img src = "عرقسوس.jpg">
+<img src = "قرفة.jpg">
+<img src = "حبة_البركة.jpg">
+<img src = "كافور.jpg">
+<img src = "شيح.jpg">
+<img src = "أقحوان.jpg">
+<img src = "سمسم.jpg">
+<img src = "ماء.jpg">
+<img src = "لبن.jpg">
+<img src = "بيض.jpg">
+<img src = "عسل.jpg">
+<img src = "خضروات.jpg">
+<img src = "فاكهة.jpg">
+<img src = "دجاج.jpg">
+<img src = "لحم.jpg">
+<img src = "سمك.jpg">
+<img src = "أكاسيا.jpg">
+<img src = "البلوط.jpg">
+<img src = "البرتقال.jpg">
+<img src = "التفاح.jpg">
+<img src = "ريدبود.jpg">
+<img src = "الجوز_الأسود.jpg">
+<img src = "الصنوبر.jpg">
+<img src = "الصمغ_الحلو.jpg">
+<img src = "الصفصاف.jpg">
+<img src = "العرعر.jpg">
+<img src = "القيقب.jpg">
+<img src = "الكافور.jpg">
+<img src = "الليمون.jpg">
+<img src = "زيزفون.jpg">
+<img src = "النخيل.jpg">
+<img src = "أكاسيا2.jpg">
+<img src =  "البلوط2.jpg">
+<img src = "البرتقال2.jpg">
+<img src = "التفاح2.jpg">
+<img src = "ريدبود2.jpg">
+<img src = "الجوز_الأسود2.jpg">
+<img src = "الصنوبر2.jpg">
+<img src ="الصمغ_الحلو2.jpg">
+<img src = "الصفصاف2.jpg">
+<img src = "العرعر2.jpg">
+<img src = "القيقب2.jpg">
+<img src = "الكافور2.jpg">
+<img src = "الليمون2.jpg">
+<img src = "زيزفون2.jpg">
+<img src = "النخيل2.jpg">
+<img src = "النيل.jpg">
+<img src = "النيل2.jpg">
+<img src = "الأمازون.jpg">
+<img src = "الأمازون2.jpg">
+<img src = "يانغتسي.jpg">
+<img src = "يانغتسي2.jpg">
+<img src = "المسيسيبي.jpg">
+<img src = "المسيسيبي2.jpg">
+<img src = "ينسي.jpg">
+<img src = "ينسي2.jpg">
+<img src = "الأصفر.jpg">
+<img src = "الأصفر2.jpg">
+<img src = "أوب.jpg">
+<img src = "أوب2.jpg">
+<img src = "بارانا.jpg">
+<img src = "بارانا2.jpg">
+<img src = "الكونغو.jpg">
+<img src = "الكونغو2.jpg">
+<img src = "آمور.jpg">
+<img src = "آمور2.jpg">
+<img src = "لينا.jpg">
+<img src = "لينا2.jpg">
+<img src = "الميكونغ.jpg">
+<img src = "الميكونغ2.jpg">
+<img src = "ماكنزي.jpg">
+<img src = "ماكنزي2.jpg">
+<img src = "النيجر.jpg">
+<img src = "النيجر2.jpg">
+<img src = "دارلنج.jpg">
+<img src = "دارلنج2.jpg">
+<img src = "بكين.jpg">
+<img src = "ميسوري.jpg">
+<img src = "كريستينبوش.jpg">
+<img src = "كوريتيبيا.jpg">
+<img src = "نونغ.jpg">
+<img src = "نيويورك.jpg">
+<img src = "كيو.jpg">
+<img src = "الأزهر.jpg">
+<img src = "الحامة.jpg">
+<img src = "بيئة1.jpg">
+<img src = "بيئة2.jpg">
+<img src = "بيئة3.jpg">
+<img src = "بيئة4.jpg">
+<img src = "بيئة5.jpg">
+<img src = "بيئة6.jpg">
+<img src = "بيئة7.jpg">
+<img src = "بيئة8.jpg">
+<img src = "بيئة9.jpg">
+<img src = "أنواع_النباتات.jpg">
+<img src = "النباتات_العطرية2.jpg">
+<img src = "النباتات_الطبية2.jpg">
+<img src = "النباتات_المزهرة.jpg">
+<img src = "النباتات_العصارية.jpg">
+<img src = "النباتات_الاستوائية.jpg">
+<img src = "النباتات_الصحراوية.jpg">
+<img src = "النباتات_البيئية.jpg">
+<img src = "العناية_بالنباتات.jpg">
+<img src = "الطاقة_الشمسية.jpg">
+<img src = "طاقة_الرياح.jpg">
+<img src = "الطاقة_الكهرومائية.jpg">
+<img src = "الطاقة_الحرارية_الجوفية.jpg">
+<img src = "مكافحة_التغير_المناخي.jpg">
+<img src = "بطاريات_الطاقة_الشمسية.jpg">
+<img src = "الطاقة_المتجددة_في_المناطق_النائية.jpg">
+<img src = "الإقتصاد_الأخضر.jpg">
+<img src = "انتشار_الطاقة_المتجددة.jpg">
+<img src = "أقحوان.jpg">
+<img src = "الأوركيد.jpg">
+<img src = "الياسمين.jpeg">
+<img src = "الورد.jpg">
+<img src = "الفل.jpeg">
+<img src = "النرجس.jpg">
+<img src = "التوليب.jpg">
+<img src = "حب_دوار_الشمس.jpg">
+<img src = "لافندر.jpg">
+<img src = "بنفسج.jpg">
+<img src = "الفاونيا.jpg">
+<img src = "الليك.jpeg">
+<img src = "الزنبق.jpg">
+<img src = "الكاميليا.jpg">
+<img src = "شقائق_النعمان.jpg">
+<img src = "القرنفل.jpeg">
+<img src = "اللوتس.jpg">
+<img src = "المارجريت.jpeg">
+<img src = "الجلاديولس.jpg">
+<img src = "الهيدرانجيا.jpg">
+<img src = "زهرة_الداليا.jpg">
+<img src = "زهرة_الجربيرا.jpg">
+<img src = "زهرة_الأستر.jpg">
+<img src = "زهرة_البيجونيا.jpg">
+<img src = "زهرة_البلوميريا.jpg">
+<img src = "زهرة_الهيبيسكوس.jpg">
+<img src = "زهرة_الفريزيا.jpg">
+<img src = "أزاليا.jpg">
+<img src = "زهرة_أستيلبي.jpg">
+<img src = "زهرة_إيريس.jpg">
+<img src = "زهرة_إيلنج.jpg">
+<img src = "زهرة_الجاردينيا.jpg">
+<img src = "زهرة_الجهنمية.jpg">
+<img src = "زهرة_السبيريا.jpg">
+<img src = "زهرة_سيلين.jpg">
+<img src = "زهرة_اللويزة.jpg">
+<img src = "زهرة_ماغنوليا.jpg">
+<img src = "زهرة_ماريغولد.jpg">
+<img src = "زهرة_ميموزا.jpg">
+<img src = "زهرة_نيلوفر.jpg">
+<img src = "زهرة_القطيفة.jpg">
+<img src = "زهرة_البابونج.jpg">
+<img src = "زهرة_الفلوكس.jpg">
+<img src = "زهرة_الأسترو.jpg">
+<img src = "زهرة_البروميلية.jpg">
+<img src = "نبات_الروزماري.jpg">
+<img src = "زهرة_الأنثوريوم.jpg">
+<img src = "زهرة_الكليرودندرون.jpg">
+<img src = "زهرة_السينيريا.jpg">
+<img src = "زهرة_العسل.jpg">
+<img src = "الشفق_القطبي.jpg">
+<img src = "صخور_الزحف.jpg">
+<img src = "أمطار_الحيوانات.jpg">
+<img src = "الأمواج_المتوهجة.jpg">
+<img src = "دوامات_النار.jpg">
+<img src = "أزهار_الصقيع.jpg">
+<img src = "الأعمدة_الضوئية.jpg">
+<img src = "كرات_البرق.jpg">
+<img src = "تسونامي_الجاذبية.jpg">
+<img src = "البرق_البركاني.jpg">
+<img src = "بحيرات_الأسفلت.jpg">
+<img src = "الشلالات_المعكوسة.jpg">
+<img src = "الأنهار_الغليانية.jpg">
+<img src = "الصخور_المضيئة.jpg">
+<img src = "الغيوم_العدسية.jpg">
+<img src = "شلالات_الدم.jpg">
+<img src = "بوابة_الجحيم.jpg">
+<img src = "فقاعات_الميثان.jpg">
+<img src = "الدوامات_السوداء.jpg">
+<img src = "الانفجارات_البركانية.jpg">
+<img src = "الهالات_الشمسية.jpg">
+<img src = "قوس_القمر.jpg">
+<img src = "الشموس_الكاذبة.jpg">
+<img src = "البرق_الأحمر.jpg">
+<img src = "البرق_الأخضر.jpg">
+<img src = "البرق_الأبيض.jpg">
+<img src = "البرق_الأصفر.jpg">
+<img src = "بحيرة_هيلير_الوردية.jpg">
+<img src = "البحيرة_المرقطة.jpg">
+<img src = "الشاطئ_المخفي.jpg">
+<img src = "الدوامات_البحرية.jpg">
+<img src = "الأنهار_الجليدية_الزرقاء.jpg">
+<img src = "الأنهار_الجليدية_السوداء.jpg">
+<img src = "الأنهار_الجليدية_الخضراء.jpg">
+<img src = "النباتات_المتحركة.jpg">
+<img src = "أشجار_تتحرك.jpg">
+<img src = "أزهار_تتفتح_ليلا.jpg">
+<img src = "النباتات_المفترسة.jpg">
+<img src = "طحالب_متوهجة.jpg">
+<img src = "أسماك_طائرة.jpg">
+<img src = "ضفادع_مجمدة.jpg">
+<img src = "الغطاس_الأوروبي.jpg">
+<img src = "حيوانات_تغير_لونها.jpg">
+<img src = "حيوانات_تتوهج.jpg">
+<img src = "الحيوانات.jpg">
+<img src = "البحار.jpg">
+<img src = "الصحراء.jpg">
+<img src = "الأنهار_الجليدية.jpg">
+<img src = "النباتات_الطبية.jpg">
+<img src = "تلقيح_النباتات.jpg">
+<img src = "المحميات_الطبيعية.jpg">
+<img src = "العواصف_والفيضانات.jpg">
+<img src = "البيئة_الجبلية.jpg">
+<img src = "الألوان_في_الطبيعة.jpg">
+<img src = "الجبال_والقمم.jpg">
+<img src = "البراكين.jpg">
+<img src = "الشلالات.jpg">
+<img src = "السهول_والوديان.jpg">
+<img src = "دور_الطبيعة_في_الشفاء.jpg">
+<img src = "الكهوف_والمغارات.jpg">
+<img src = "رحلات_السفاري.jpg">
+<img src = "الغروب_والشروق.jpg">
+<img src = "أشجار_عملاقة.jpg">
+<img src = "الصخور_العجيبة.jpg">
+<img src = "المشي_في_الطبيعة.jpg">
+<img src = "الطيور.jpg">
+<img src = "الجبال.jpg">
+<img src = "الهضاب_والسهول.jpg">
+<img src = "الأنهار_الكبرى.jpg">
+<img src = "الوديان_والأخاديد.jpg">
+<img src = "البحيرات_المالحة_والعذبة.jpg">
+<img src = "الينابيع_الحارة.jpg">
+<img src = "الجبال_الملونة.jpg">
+<img src = "الزلازل.jpg">
+<img src = "الصفائح_التكتونية.jpg">
+<img src = "المد_والجزر.jpg">
+<img src = "التجوية.jpg">
+<img src = "الانهيارات_الأرضية.jpg">
+<img src = "الكثبان_الرملية.jpg">
+<img src = "الأنهار_تحت_الأرض.jpg">
+<img src = "الكسوف_والخسوف.jpg">
+<img src = "النيازك_والشهب.jpg">
+<img src = "النجوم_والكواكب.jpg">
+<img src = "المذنبات.jpg">
+<img src = "الزلازل_القمرية.jpg">
+<img src = "الانفجارات_الشمسية.jpg">
+<img src = "الثقوب_السوداء.jpg">
+<img src = "الثقوب_البيضاء.jpg">
+<img src = "المجرات.jpg">
+<img src = "تأثير_التضاريس_على_توزيع_السكان.jpg">
+<img src = "الطرق_التجارية_القديمة.jpg">
+<img src = "المعابد_والمواقع_المقدسة.jpg">
+<img src = "الأساطير_الطبيعية.jpg">
+<img src = "المهرجانات_الطبيعية.jpg">
+<img src = "الرياضات_الجبلية.jpg">
+<img src = "الزراعة_التقليدية.jpg">
+<img src = "الفنون_المستوحاه_من_الطبيعة.jpg">
+<img src = "العمارة_المتكيفة_مع_الطبيعة.jpg">
+<img src = "التصحر.jpg">
+<img src = "الزراعة_المستدامة.jpg">
+<img src = "التنوع_البيولوجي.jpg">
+<img src = "هجرة_الطيور.jpg">
+<img src = "تكافل_الكائنات_الحية.jpg">
+<img src = "تكيفات_الحيوانات.jpg">
+<img src = "الأنواع_المهددة_بالانقراض_في_أفريقيا.jpg">
+<img src = "دور_النباتات_في_تنقية_الهواء.jpg">
+<img src = "النباتات_المتكيفة_مع_البيئات_الصحراوية.jpg">
+<img src = "النباتات_المهددة_بالانقراض.jpg">
+<img src = "النباتات_السامة.jpg">
+<img src = "النباتات_المتسلقة.jpg">
+<img src = "الفيضانات.jpg">
+<img src = "الظواهر_الطبيعية_في_أفريقيا.jpg">
+<img src = "صحراء.jpg">
+<img src = "الكهوف_الجيرية.jpg">
+<img src = "الهضاب_والجبال.jpg">
+<img src = "الغابات_المطيرة.jpg">
+<img src = "الأشجار.jpg">
+<img src = "الغطاء_النباتي.jpg">
+<img src = "النباتات_الطبية2.jpg">
+<img src = "أشجار_المانجروف.jpg">
+<img src = "مراحل_نمو_النبات.jpg">
+<img src = "أشهر_غابات_أسيا_وأفريقيا.jpg">
+<img src = "الحيوانات_الليلية.jpg">
+<img src = "سلاسل_الغذاء_في_الطبيعة.jpg">
+<img src = "الحيوانات_الأليفة_والبرية.jpg">
+<img src = "طرق_تنقل_الحيوانات.jpg">
+<img src = "وسائل_الدفاع_عند_الحيوانات.jpg">
+<img src = "الثدييات.jpg">
+<img src = "الرعد_والبرق.jpg">
+<img src = "العواصف_الرملية.jpg">
+<img src = "الضباب.jpg">
+<img src = "الرياح.jpg">
+<img src = "الثلوج.jpg">
+<img src = "السحب.jpg">
+<img src = "المحيطات.jpg">
+<img src = "البيئات_المختلفة.jpg">
+<img src = "عناصر_الحياة_الأساسية.jpg">
+<img src = "الأنهار_المقدسة.jpg">
+<img src = "تأثير_الحرارة_على_الكائنات_الحية.jpg">
+<img src = "البيئة_الطبيعية_والصناعية.jpg">
+<img src = "الصخور_المتحولة.jpg">
+<img src = "الأنهار_الموسمية.jpg">
+<img src = "دلتا_الأنهار.jpg">
+<img src = "الجزر_المرجانية.jpg">
+<img src = "الأقمار_الصناعية_ودراسة_البيئة.jpg">
+<img src = "الطقس_والمناخ.jpg">
+<img src = "أماكن_طبيعية_عالمية.jpg">
+<img src = "أهم_المحاصيل_الزراعية.jpg">
+<img src = "جودة_التربة_ونمو_النبات.jpg">
+<img src = "النباتات_العطرية.jpg">
+<img src = "حياة_الأشجار.jpg">
+<img src = "النباتات_المائية.jpg">
+<img src = "نباتات_الزينة_المنزلية.jpg">
+<img src = "التلقيح_النباتي.jpg">
+<img src = "تخزين_النباتات_للماء.jpg">
+<img src = "أنواع_الحشرات.jpg">
+<img src = "أسماك_المياه_العذبة.jpg">
+<img src = "البيات_الشتوي.jpg">
+<img src = "تلقيح_الحيوانات_للنباتات.jpg">
+<img src = "الحيوانات_الانفرادية.jpg">
+<img src = "الزواحف.jpg">
+<img src = "الثدييات_البحرية.jpg">
+<img src = "أهمية_النحل_في_الزراعة.jpg">
+<img src = "إنتاج_النحل_للعسل.jpg">
+<img src = "العناكب.jpg">
+<img src = "الإعصار.jpg">
+<img src = "البراكين_الجليدية.jpg">
+<img src = "المطر_الحمضي.jpg">
+<img src = "قوس_قزح.jpg">
+<img src = "الطبيعة_في_القصص.jpg">
+<img src = "المخاطر_الطبيعية.jpg">
+<img src = "مصادر_الطاقة_غير_المتجددة.jpg">
+<img src = "الطبيعة_في_القرآن.jpg">
+<img src = "الطبيعة_تعلمنا_التعاون.jpg">
+</div>
+</div>
+<script>
+let images = document.querySelectorAll(".images-box img");
+let mainImg = document.querySelector(".main-img img");
+let reset = document.getElementById("reset");
+let download = document.getElementById("download");
+let saturate = document.getElementById("saturate");
+let contrast = document.getElementById("contrast");
+let brightness = document.getElementById("brightness");
+let sepia = document.getElementById("sepia");
+let grayscale = document.getElementById("grayscale");
+let blur = document.getElementById("blur");
+let hueRotate = document.getElementById("hue-rotate");
+let invert = document.getElementById("invert");
+let inputs = document.querySelectorAll('input[type="range"]');
+let up = document.getElementById("up");
+let canva = document.getElementById("canva");
+let context = canva.getContext("2d");
+images.forEach ( function (img) {
+	img.onmouseenter = function () {
+		this.style.transform = "scale(1.1)";
+	}
+	img.onmouseleave = function () {
+		this.style.transform = "scale(1)";
+	}
+	img.onclick = function () {
+		mainImg.src = this.src;
+		canva.width = mainImg.width;
+		canva.height = mainImg.height;
+		context.drawImage(mainImg, 0, 0, canva.width, canva.height);
+		mainImg.style.display = "none";
+		this.style.transform = "scale(1.1)";
+		resetImage();
+	}
+})
+
+function resetImage () {
+	saturate.value = "100";
+	contrast.value = "100";
+	brightness.value = "100";
+	sepia.value = "0";
+	grayscale.value = "0";
+	blur.value = "0";
+	hueRotate.value = "0";
+	invert.value = "0";
+	context.filter = "none";
+	canva.width = mainImg.width;
+	canva.height = mainImg.height;
+	context.drawImage(mainImg, 0, 0, canva.width, canva.height);
+}
+
+inputs.forEach ( function (input) {
+	input.addEventListener("input", function () {
+		context.filter = `
+		saturate(${saturate.value}%)
+		contrast(${contrast.value}%)
+		brightness(${brightness.value}%)
+		sepia(${sepia.value}%)
+		grayscale(${grayscale.value})
+		blur(${blur.value}px)
+		hue-rotate(${hueRotate.value}deg)
+		invert(${invert.value}%)
+		`;
+		context.drawImage(mainImg, 0, 0, canva.width, canva.height);
+		mainImg.style.display = "none";
+	})
+})
+
+download.onclick = function () {
+	this.href = canva.toDataURL();
+}
+  window.onscroll = function () {
+  if (scrollY >= 2000) {
+    up.style.transform = "translateX(-3px)";
+  }
+  else {
+    up.style.transform = "translateX(100px)";
+  }
+}
+function upButton() {
+  scrollTo ({
+    top: 0,
+    behavior: "smooth"
+  })
+}
+</script>
+</body>
+</html>

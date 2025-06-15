@@ -1,0 +1,711 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset = "UTF-8">
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+<title>الطبيعة والنباتات | صفحة النباتات</title>
+<link rel = "stylesheet" href = "mainCssFile.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Cairo:wght@200..1000&family=Lateef:wght@200;300;400;500;600;700;800&family=Noto+Sans+Imperial+Aramaic&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<ul>
+<li><a href = "index.html">الرئيسية</a></li>
+<li><a href = "plants.html" style = "color: darkkhaki;">النباتات</a></li>
+<li><a href = "nature.html">الطبيعة</a></li>
+<button class = "dark" onclick = "darkMood('plantsBox')">🌑</button>
+<button class = "light" onclick = "lightMood('plantsBox')">🌕</button>
+<li>
+<div class = "open-menu" onclick = showOpenMenu()>
+<p></p>
+<p></p>
+<p></p>
+</div></li>
+<div class = "close-menu" onclick = showCloseMenu()>
+<p>×</p>
+</div>
+</ul>
+</header>
+<div id = "appendToHeader" style = "display: none;">
+<a href = "daily_information.html" class = "par">معلومة يوميا !</a>
+<a href = "nature_images.html" class = "par">معرض الصور</a>
+<a href = "articles.html" class = "par">صفحة المقالات</a>
+<a href = "privacy.html" class = "par">سياسة الخصوصية</a>
+<div id = "circles">
+<p class = "par-circle" id = "boxOne"
+onclick = "change ('boxOne', 'darkred', 'white', 'darkkhaki', '#531', 'white', 'yellow', 'aqua')"></p>
+<p class = "par-circle" id = "boxTwo" 
+onclick = "change ('boxTwo', 'darkgreen', 'yellow', 'white', '#350', 'white', 'yellowgreen', 'gold')"></p>
+<p class = "par-circle" id = "boxThree" 
+onclick = "change ('boxThree', 'darkblue', 'aqua', 'white', '#305', 'white', 'yellow', 'orange')"></p>
+<p class = "par-circle" id = "boxFour" 
+onclick = "change ('boxFour', 'gold', 'black', 'brown', 'darkkhaki', 'white', 'brown', 'purple')"></p>
+</div>
+</div>
+<div id = "plantsBox" onclick = showCloseMenu()>
+<br><br>
+<button id = "up" onclick = upButton()>&uparrow;</button>
+<div class = "inputs">
+<input type = "text" placeholder = "البحث عن نبات" onkeyup = "searchOne(this.value)">
+</div>
+<div class = "plants">
+<h2 id = "one">الخضروات</h2>
+<h2 class = "colored">الخضروات</h2>
+<div class = "plants-boxes">
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الباذنجان" onclick="createLinks('باذنجان')">
+<img src = "باذنجان.jpg">
+<a href = "باذنجان.html">🍆 نبات الباذنجان</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البطاطس" onclick="createLinks('بطاطس')">
+<img src = "بطاطس.jpg">
+<a href = "بطاطس.html">🥔 نبات البطاطس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البطاطا" onclick="createLinks('بطاطا')">
+<img src = "بطاطا.jpg">
+<a href = "بطاطا.html">🍠 نبات البطاطا</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات البصل" onclick="createLinks('بصل')">
+<img src = "بصل.jpg">
+<a href = "بصل.html">🧅 نبات البصل</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البروكلي" onclick="createLinks('بروكلي')">
+<img src = "بروكلي.jpg">
+<a href = "بروكلي.html">🥦 نبات البروكلي</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البنجر" onclick="createLinks('بنجر')">
+<img src = "بنجر.jpg">
+<a href = "بنجر.html"> نبات البنجر = الشمندر</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الثوم" onclick="createLinks('ثوم')">
+<img src = "ثوم.jpg">
+<a href = "ثوم.html">🧄 نبات الثوم</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الجرجير" onclick="createLinks('جرجير')">
+<img src = "جرجير.jpg">
+<a href = "جرجير.html">🌿 نبات الجرجير</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الجزر" onclick="createLinks('جزر')">
+<img src = "جزر.jpg">
+<a href = "جزر.html">🥕 نبات الجزر</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الخس" onclick="createLinks('خس')">
+<img src = "خس.jpg">
+<a href = "خس.html">🥬 نبات الخس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الخرشوف" onclick="createLinks('خرشوف')">
+<img src = "خرشوف.jpg">
+<a href = "خرشوف.html"> نبات الخرشوف = أرضي شوكي</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الخيار" onclick="createLinks('خيار')">
+<img src = "خيار.jpg">
+<a href = "خيار.html">🥒 نبات الخيار</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الزيتون" onclick="createLinks('زيتون')">
+<img src = "زيتون.jpg">
+<a href = "زيتون.html"> نبات الزيتون</a>
+</div>
+<div class = "box" title = "معلومات عن نبات السبانخ" onclick="createLinks('سبانخ')">
+<img src = "سبانخ.jpg">
+<a href = "سبانخ.html">🌿 نبات السبانخ</a>
+</div>
+<div class = "box" title = "معلومات عن نبات السلق" onclick="createLinks('سلق')">
+<img src = "سلق.jpg">
+<a href = "سلق.html">🌿 نبات السلق</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الفجل" onclick="createLinks('فجل')">
+<img src = "فجل.jpg">
+<a href = "فجل.html">🌱 نبات الفجل</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفلفل الأخضر" onclick="createLinks('فلفل_أخضر')">
+<img src = "فلفل_أخضر.jpg">
+<a href = "فلفل_أخضر.html"> نبات الفلفل الأخضر</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفلفل الأحمر" onclick="createLinks('فلفل_أحمر')">
+<img src = "فلفل_أحمر.jpg">
+<a href = "فلفل_أحمر.html">🌶️ نبات الفلفل الأحمر (الحار)</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات القرنبيط" onclick="createLinks('قرنبيط')">
+<img src = "قرنبيط.jpg">
+<a href = "قرنبيط.html">🥦 نبات القرنبيط</a>
+</div>
+<div class = "box" title = "معلومات عن نبات القرع" onclick="createLinks('قرع')">
+<img src = "قرع.jpg">
+<a href = "قرع.html">🎃 نبات القرع</a>
+</div>
+<div class = "box" title = "معلومات عن نبات القلقاس" onclick="createLinks('قلقاس')">
+<img src = "قلقاس.jpg">
+<a href = "قلقاس.html">🟡 نبات القلقاس</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الكرفس" onclick="createLinks('كرفس')">
+<img src = "كرفس.jpg">
+<a href = "كرفس.html">🌿 نبات الكرفس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكوسة" onclick="createLinks('كوسة')">
+<img src = "كوسة.jpg">
+<a href = "كوسة.html">🥒 نبات الكوسة</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكرنب" onclick="createLinks('كرنب')">
+<img src = "كرنب.jpg">
+<a href = "كرنب.html">🥦 نبات الكرنب = الملفوف</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الكراث" onclick="createLinks('كراث')">
+<img src = "كراث.jpg">
+<a href = "كراث.html">🌿 نبات الكراث</a>
+</div>
+<div class = "box" title = "معلومات عن نبات اللفت" onclick="createLinks('لفت')">
+<img src = "لفت.jpg">
+<a href = "لفت.html">🌿 نبات اللفت</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الملوخية" onclick="createLinks('ملوخية')">
+<img src = "ملوخية.jpg">
+<a href = "ملوخية.html">🌿 نبات الملوخية</a>
+</div>
+</div>
+<div class = "box" title = "معلومات عن نبات الليمون" style = "margin: auto;" onclick="createLinks('ليمون')">
+<img src = "ليمون.jpg">
+<a href = "ليمون.html"> 🍋 نبات الليمون</a>
+</div>
+<h2 id = "two">الفاكهة</h2>
+<h2 class = "colored">الفاكهة</h2>
+<div class = "plants-boxes">
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الأناناس" onclick="createLinks('أناناس')">
+<img src = "أناناس.jpg">
+<a href = "أناناس.html">🍍 نبات الأناناس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الأفوكادو" onclick="createLinks('أفوكادو')">
+<img src = "أفوكادو.jpg">
+<a href = "أفوكادو.html">🥑 نبات الأفوكادو</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكمثرى" onclick="createLinks('كمثرى')">
+<img src = "كمثرى.jpg">
+<a href = "كمثرى.html">🍐 نبات الكمثرى = الإجاص</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الببايا" onclick="createLinks('ببايا')">
+<img src = "ببايا.jpg">
+<a href = "ببايا.html">🍈 نبات الببايا</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البرتقال" onclick="createLinks('برتقال')">
+<img src = "برتقال.jpg">
+<a href = "برتقال.html">🍊 نبات البرتقال</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البرقوق" onclick="createLinks('برقوق')">
+<img src = "برقوق.jpg">
+<a href = "برقوق.html">🍑 نبات البرقوق</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات البطيخ" onclick="createLinks('بطيخ')">
+<img src = "بطيخ.jpg">
+<a href = "بطيخ.html">🍉 نبات البطيخ</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البلح" onclick="createLinks('تمر')">
+<img src = "تمر.jpg">
+<a href = "تمر.html">🌴 نبات البلح = التمر</a>
+</div>
+<div class = "box" title = "معلومات عن نبات التين" onclick="createLinks('تين')">
+<img src = "تين.jpg">
+<a href = "تين.html">🟣 نبات التين</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات التفاح" onclick="createLinks('تفاح')">
+<img src = "تفاح.jpg">
+<a href = "تفاح.html">🍎🍏 نبات التفاح</a>
+</div>
+<div class = "box" title = "معلومات عن نبات التوت" onclick="createLinks('توت')">
+<img src = "توت.jpg">
+<a href = "توت.html"> نبات التوت</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الخوخ" onclick="createLinks('خوخ')">
+<img src = "خوخ.jpg">
+<a href = "خوخ.html">🍑 نبات الخوخ = الدراق</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الخروب" onclick="createLinks('خروب')">
+<img src = "خروب.jpg">
+<a href = "خروب.html">🌿 نبات الخروب</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الرمان" onclick="createLinks('رمان')">
+<img src = "رمان.jpg">
+<a href = "رمان.html">🔴 نبات الرمان</a>
+</div>
+<div class = "box" title = "معلومات عن نبات التين الشوكي" onclick="createLinks('تين_شوكي')">
+<img src = "تين_شوكي.jpg">
+<a href = "تين_شوكي.html">🌵 نبات التين الشوكي</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الطماطم" onclick="createLinks('طماطم')">
+<img src = "طماطم.jpg">
+<a href = "طماطم.html">🍅 نبات الطماطم</a>
+</div>
+<div class = "box" title = "معلومات عن نبات العنب" onclick="createLinks('عنب')">
+<img src = "عنب.jpg">
+<a href = "عنب.html">🍇 نبات العنب</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفراولة" onclick="createLinks('فراولة')">
+<img src = "فراولة.jpg">
+<a href = "فراولة.html">🍓 نبات الفراولة</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الكرز" onclick="createLinks('كرز')">
+<img src = "كرز.jpg">
+<a href = "كرز.html">🍒 نبات الكرز</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكيوي" onclick="createLinks('كيوي')">
+<img src = "كيوي.jpg">
+<a href = "كيوي.html">🥝 نبات الكيوي</a>
+</div>
+<div class = "box" title = "معلومات عن نبات المانجو" onclick="createLinks('مانجو')">
+<img src = "مانجو.jpg">
+<a href = "مانجو.html">🥭 نبات المانجو</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات المشمش" onclick="createLinks('مشمش')">
+<img src = "مشمش.jpg">
+<a href = "مشمش.html">🍑 نبات المشمش</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الجوافة" onclick="createLinks('جوافة')">
+<img src = "جوافة.jpg">
+<a href = "جوافة.html">🍐 نبات الجوافة</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الموز" onclick="createLinks('موز')">
+<img src = "موز.jpg">
+<a href = "موز.html">🍌 نبات الموز</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات اليوسفي" onclick="createLinks('يوسفي')">
+<img src = "يوسفي.jpg">
+<a href = "يوسفي.html">🍊 نبات اليوسفي</a>
+</div>
+<div class = "box" title = "معلومات عن نبات اليقطين" onclick="createLinks('يقطين')">
+<img src = "يقطين.jpg">
+<a href = "يقطين.html">🎃 نبات اليقطين</a>
+</div>
+</div>
+</div>
+<h2 id = "three">البقوليات</h2>
+<h2 class = "colored">البقوليات</h2>
+<div class = "plants-boxes">
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الأرز" onclick="createLinks('رز')">
+<img src = "رز.jpg">
+<a href = "رز.html">🍚 نبات الأرز</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البازلاء" onclick="createLinks('بازلاء')">
+<img src = "بازلاء.jpg">
+<a href = "بازلاء.html"> نبات البازلاء</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البامية" onclick="createLinks('بامية')">
+<img src = "بامية.jpg">
+<a href = "بامية.html">🌿 نبات البامية</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الترمس" onclick="createLinks('ترمس')">
+<img src = "ترمس.jpg">
+<a href = "ترمس.html"> نبات الترمس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الحمص" onclick="createLinks('حمص')">
+<img src = "حمص.jpg">
+<a href = "حمص.html"> نبات الحمص</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الذرة" onclick="createLinks('ذرة')">
+<img src = "ذرة.jpg">
+<a href = "ذرة.html">🌽 نبات الذرة</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات العدس" onclick="createLinks('عدس')">
+<img src = "عدس.jpg">
+<a href = "عدس.html"> نبات العدس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفاصوليا" onclick="createLinks('فاصوليا')">
+<img src = "فاصوليا.jpg">
+<a href = "فاصوليا.html"> نبات الفاصوليا</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفول" onclick="createLinks('فول')">
+<img src = "فول.jpg">
+<a href = "فول.html"> نبات الفول</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات اللوبيا" onclick="createLinks('لوبيا')">
+<img src = "لوبيا.jpg">
+<a href = "لوبيا.html"> نبات اللوبيا</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفول الأخضر" onclick="createLinks('فول_أخضر')">
+<img src = "فول_أخضر.jpg">
+<a href = "فول_أخضر.html"> نبات الفول الأخضر</a>
+</div>
+</div>
+</div>
+<h2 id = "four">المكسرات</h2>
+<h2 class = "colored">المكسرات</h2>
+<div class = "plants-boxes">
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات البندق" onclick="createLinks('بندق')">
+<img src = "بندق.jpg">
+<a href = "بندق.html">🌰 نبات البندق</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البلوط" onclick="createLinks('بلوط')">
+<img src = "بلوط.jpg">
+<a href = "بلوط.html">🌳 نبات البلوط</a>
+</div>
+<div class = "box" title = "معلومات عن نبات عين الجمل" onclick="createLinks('عين_الجمل')">
+<img src = "عين_الجمل.jpg">
+<a href = "عين_الجمل.html"> نبات عين الجمل = الجوز</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات اللوز" onclick="createLinks('لوز')">
+<img src = "لوز.jpg">
+<a href = "لوز.html"> نبات اللوز</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكاجو" onclick="createLinks('كاجو')">
+<img src = "كاجو.jpg">
+<a href = "كاجو.html"> نبات الكاجو</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الفستق" onclick="createLinks('فستق')">
+<img src = "فستق.jpg">
+<a href = "فستق.html">🌰 نبات الفستق</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الصنوبر" onclick="createLinks('صنوبر')">
+<img src = "صنوبر.jpg">
+<a href = "صنوبر.html"> نبات الصنوبر</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الماكاديميا" onclick="createLinks('ماكاديميا')">
+<img src = "ماكاديميا.jpg">
+<a href = "ماكاديميا.html">🌿 نبات الماكاديميا</a>
+</div>
+<div class = "box" title = "معلومات عن نبات جوز الهند" onclick="createLinks('جوز_الهند')">
+<img src = "جوز_الهند.jpg">
+<a href = "جوز_الهند.html">🥥 نبات جوز الهند</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الكستناء" onclick="createLinks('كستناء')">
+<img src = "كستناء.jpg">
+<a href = "كستناء.html">🌿 نبات الكستناء = أبو فروة</a>
+</div>
+<div class = "box" title = "معلومات عن حب القرع" onclick="createLinks('حب_القرع')">
+<img src = "حب_القرع.jpg">
+<a href = "حب_القرع.html"> حب القرع = اللب الأبيض</a>
+</div>
+<div class = "box" title = "معلومات عن حب البطيخ" onclick="createLinks('حب_البطيخ')">
+<img src = "حب_البطيخ.jpg">
+<a href = "حب_البطيخ.html"> حب البطيخ = اللب الأسمر</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن حب دوار الشمس " onclick="createLinks('حب_دوار_الشمس')">
+<img src = "حب_دوار_الشمس.jpg">
+<a href = "حب_دوار_الشمس.html">حب دوار الشمس = اللب السوري</a>
+</div>
+<div class = "box" title = "معلومات عن حب الكتان" onclick="createLinks('حب_الكتان')">
+<img src = "حب_الكتان.jpg">
+<a href = "حب_الكتان.html"> حب الكتان</a>
+</div>
+<div class = "box" title = "معلومات عن حب الرشاد" onclick="createLinks('حب_الرشاد')">
+<img src = "حب_الرشاد.jpg">
+<a href = "حب_الرشاد.html"> حب الرشاد</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الفول السوداني" onclick="createLinks('فول_سوداني')">
+<img src = "سوداني.jpg">
+<a href = "فول_سوداني.html">🥜 نبات الفول السوداني</a>
+</div>
+<div class = "box" title = "معلومات عن بذور الشيا" onclick="createLinks('بذور_الشيا')">
+<img src = "بذور_الشيا.jpg">
+<a href = "بذور_الشيا.html"> بذور الشيا</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الزبيب" onclick="createLinks('زبيب')">
+<img src = "زبيب.jpg">
+<a href = "زبيب.html"> نبات الزبيب</a>
+</div>
+</div>
+</div>
+<h2 id = "five">الأعشاب</h2>
+<h2 class = "colored">الأعشاب</h2>
+<div class = "plants-boxes">
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الأرقطيون" onclick="createLinks('أرقطيون')">
+<img src = "أرقطيون.jpg">
+<a href = "أرقطيون.html">🌿 نبات الأرقطيون</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الروزماري" onclick="createLinks('روزماري')">
+<img src = "روزماري.jpg">
+<a href = "روزماري.html">🌿 نبات الروزماري = إكليل الجبل</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البابونج" onclick="createLinks('بابونج')">
+<img src = "بابونج.jpg">
+<a href = "بابونج.html">🌿 نبات البابونج</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات البردقوش" onclick="createLinks('بردقوش')">
+<img src = "بردقوش.jpg">
+<a href = "بردقوش.html">🌿 نبات البردقوش</a>
+</div>
+<div class = "box" title = "معلومات عن نبات البقدونس" onclick="createLinks('بقدونس')">
+<img src = "بقدونس.jpg">
+<a href = "بقدونس.html">🌿 نبات البقدونس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الريحان" onclick="createLinks('ريحان')">
+<img src = "ريحان.jpg">
+<a href = "ريحان.html">🌿 نبات الريحان = الحبق</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الحلبة" onclick="createLinks('حلبة')">
+<img src = "حلبة.jpg">
+<a href = "حلبة.html"> نبات الحلبة</a>
+</div>
+<div class = "box" title = "معلومات عن نبات اللافندر" onclick="createLinks('لافندر')">
+<img src = "لافندر.jpg">
+<a href = "لافندر.html">🌿 نبات اللافندر = الخزامي</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الزعتر" onclick="createLinks('زعتر')">
+<img src = "زعتر.jpg">
+<a href = "زعتر.html">🌿 نبات الزعتر</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الزعرور" onclick="createLinks('زعرور')">
+<img src = "زعرور.jpg">
+<a href = "زعرور.html">🌱 نبات الزعرور</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الزنجبيل" onclick="createLinks('زنجبيل')">
+<img src = "زنجبيل.jpg">
+<a href = "زنجبيل.html"> نبات الزنجبيل</a>
+</div>
+<div class = "box" title = "معلومات عن نبات السنامكي" onclick="createLinks('سنامكي')">
+<img src = "سنامكي.jpg">
+<a href = "سنامكي.html">🌿 نبات السنامكي</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات السواك" onclick="createLinks('سواك')">
+<img src = "سواك.jpg">
+<a href = "سواك.html">🌿 نبات السواك</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الشاي الأخضر" onclick="createLinks('شاي_أخضر')">
+<img src = "شاي_أخضر.jpg">
+<a href = "شاي_أخضر.html"> نبات الشاي الأخضر</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الشبت" onclick="createLinks('شبت')">
+<img src = "شبت.jpg">
+<a href = "شبت.html">🌿 نبات الشبت</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الشمر" onclick="createLinks('شمر')">
+<img src = "شمر.jpg">
+<a href = "شمر.html">🌿 نبات الشمر</a>
+</div>
+<div class = "box" title = "معلومات عن نبات التمر الهندي" onclick="createLinks('تمر_هندي')">
+<img src = "تمر_هندي.jpg">
+<a href = "تمر_هندي.html">🌿 نبات التمر الهندي = العرديب</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكاري" onclick="createLinks('كاري')">
+<img src = "كاري.jpg">
+<a href = "كاري.html">🌿 نبات الكاري</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الكركم" onclick="createLinks('كركم')">
+<img src = "كركم.jpg">
+<a href = "كركم.html">🌿 نبات الكركم</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكراوية" onclick="createLinks('كراوية')">
+<img src = "كراوية.jpg">
+<a href = "كراوية.html">🌿 نبات الكراوية</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكزبرة" onclick="createLinks('كزبرة')">
+<img src = "كزبرة.jpg">
+<a href = "كزبرة.html">🌿 نبات الكزبرة</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات المرمرية" onclick="createLinks('مرمرية')">
+<img src = "مرمرية.jpg">
+<a href = "مرمرية.html">🌿 نبات المرمرية = القصعين</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الناردين" onclick="createLinks('ناردين')">
+<img src = "ناردين.jpg">
+<a href = "ناردين.html">🌿 نبات الناردين</a>
+</div>
+<div class = "box" title = "معلومات عن نبات النعناع" onclick="createLinks('نعناع')">
+<img src = "نعناع.jpg">
+<a href = "نعناع.html">🌿 نبات النعناع</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الهندباء" onclick="createLinks('هندباء')">
+<img src = "هندباء.jpg">
+<a href = "هندباء.html">🌿 نبات الهندباء</a>
+</div>
+<div class = "box" title = "معلومات عن نبات اليانسون" onclick="createLinks('يانسون')">
+<img src = "يانسون.jpg">
+<a href = "يانسون.html">🌿 نبات اليانسون</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الزعفران" onclick="createLinks('زعفران')">
+<img src = "زعفران.jpg">
+<a href = "زعفران.html">🌿 نبات الزعفران</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات البنفسج" onclick="createLinks('بنفسج')">
+<img src = "بنفسج.jpg">
+<a href = "بنفسج.html"> نبات البنفسج</a>
+</div>
+<div class = "box" title = "معلومات عن نبات العرقسوس" onclick="createLinks('عرقسوس')">
+<img src = "عرقسوس.jpg">
+<a href = "عرقسوس.html">🌿 نبات العرقسوس</a>
+</div>
+<div class = "box" title = "معلومات عن نبات القرفة" onclick="createLinks('قرفة')">
+<img src = "قرفة.jpg">
+<a href = "قرفة.html">🌿 نبات القرفة</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات حبة البركة" onclick="createLinks('حبة_البركة')">
+<img src = "حبة_البركة.jpg">
+<a href = "حبة_البركة.html">🌿 نبات حبة البركة = الحبة السوداء</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الكافور" onclick="createLinks('كافور')">
+<img src = "كافور.jpg">
+<a href = "كافور.html">🌿 نبات الكافور</a>
+</div>
+<div class = "box" title = "معلومات عن نبات الشيح" onclick="createLinks('شيح')">
+<img src = "شيح.jpg">
+<a href = "شيح.html">🌿 نبات الشيح</a>
+</div>
+</div>
+<div class = "d-flex">
+<div class = "box" title = "معلومات عن نبات الأقحوان" onclick="createLinks('أقحوان')">
+<img src = "أقحوان.jpg">
+<a href = "أقحوان.html">🌿 نبات الأقحوان</a>
+</div>
+<div class = "box" title = "معلومات عن نبات السمسم" onclick="createLinks('سمسم')">
+<img src = "سمسم.jpg">
+<a href = "سمسم.html"> نبات السمسم</a>
+</div>
+</div>
+</div>
+<h2 id = "six">الماء</h2>
+<h2 class = "colored">الماء</h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن الماء" style = "margin: auto;" onclick="createLinks('ماء')">
+<img src = "ماء.jpg">
+<a href = "ماء.html">الماء ( عصب الحياة ) 🍶</a>
+</div>
+</div>
+<h2 id = "seven">اللبن</h2>
+<h2 class = "colored">اللبن</h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن اللبن" style = "margin: auto;" onclick="createLinks('لبن')">
+<img src = "لبن.jpg">
+<a href = "لبن.html">اللبن 🥛</a>
+</div>
+</div>
+<h2 id = "eight">البيض</h2>
+<h2 class = "colored">البيض</h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن البيض" style = "margin: auto;" onclick="createLinks('بيض')">
+<img src = "بيض.jpg">
+<a href = "بيض.html">البيض 🥚</a>
+</div>
+</div>
+<h2 id = "nine">العسل</h2>
+<h2 class = "colored">العسل</h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن العسل" style = "margin: auto;" onclick="createLinks('عسل')">
+<img src = "عسل.jpg">
+<a href = "عسل.html">العسل 🍯</a>
+</div>
+</div>
+<h2 id = "ten"><b style = "font-size: 15px;"
+>فوائد الخضروات بشكل عام</b></h2>
+<h2 class = "colored"><b style = "font-size: 15px;"
+>فوائد الخضروات بشكل عام</b></h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن الخضروات" style = "margin: auto;" onclick="createLinks('خضروات')">
+<img src = "خضروات.jpg">
+<a href = "خضروات.html">الخضروات 🥦🥒🌶️</a>
+</div>
+</div>
+<h2 id = "eleven"><b style = "font-size: 15px;">
+فوائد الفاكهة بشكل عام</b></h2>
+<h2 class = "colored"><b style = "font-size: 15px;"
+>فوائد الفاكهة بشكل عام</b></h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن الفاكهة" style = "margin: auto;" onclick="createLinks('فاكهة')">
+<img src = "فاكهة.jpg">
+<a href = "فاكهة.html">الفاكهة 🍌🍎🍍</a>
+</div>
+</div>
+<h2 id = "twelve">
+فوائد الدجاج</h2>
+<h2 class = "colored">
+فوائد الدجاج </h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن الدجاج" style = "margin: auto;" onclick="createLinks('دجاج')">
+<img src = "دجاج.jpg">
+<a href = "دجاج.html">الدجاج 🍗🐔</a>
+</div>
+</div>
+<h2 id = "therteen">
+فوائد اللحوم</h2>
+<h2 class = "colored">
+فوائد اللحوم </h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن اللحم" style = "margin: auto;" onclick="createLinks('لحم')">
+<img src = "لحم.jpg">
+<a href = "لحم.html">اللحوم 🍖🥩</a>
+</div>
+</div>
+<h2 id = "fourteen">
+فوائد الأسماك</h2>
+<h2 class = "colored">
+فوائد الأسماك </h2>
+<div class = "plants-boxes">
+<div class = "box" title = "معلومات عن الأسماك" style = "margin: auto;" onclick="createLinks('سمك')">
+<img src = "سمك.jpg">
+<a href = "سمك.html">الأسماك 🐟🐠🦞</a>
+</div>
+</div>
+</div>
+</div>
+<script src = "mainJsFile.js"></script>
+</body>
+</html>

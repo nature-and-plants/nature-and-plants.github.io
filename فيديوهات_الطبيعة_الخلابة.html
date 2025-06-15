@@ -1,0 +1,71 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<title>فيديوهات عن الطبيعة</title>
+</head>
+<body>
+<div class = "title">
+<h2>فيديوهات عن الطبيعة</h2>
+<b>📺</b>
+</div>
+<div class = "main">
+<iframe src = ""></iframe>
+<iframe src = ""></iframe>
+<iframe src = ""></iframe>
+</div>
+</body>
+</html>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: linear-gradient(to bottom, green, darkgreen);
+  direction: rtl;
+}
+.title {
+  background: #222;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  animation: title 1s linear;
+}
+b {
+  font-size: 50px;
+  padding: 0 0 10px;
+}
+@keyframes title {
+  0% {
+    transform: translateX(500px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+iframe {
+  border: 3px solid lightgreen;
+  border-radius: 8px;
+  margin: 30px 0;
+  width: 80%;
+}
+.main {
+  animation: main 2s;
+  margin: auto;
+  text-align: center
+}
+@keyframes main {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}</style>
