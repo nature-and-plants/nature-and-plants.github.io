@@ -27,7 +27,7 @@ function showOpenMenu() {
   openMenu.style.display = "none";
   closeMenu.style.display = "block";
   header.style.cssText = `
-  height: 420px;
+  height: 450px;
   transition: 0.5s
   `;
   setTimeout( function () {
