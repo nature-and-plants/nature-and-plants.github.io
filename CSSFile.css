@@ -19,7 +19,7 @@ h1 {
   text-align: center;
   border-bottom: 2px solid orange;
   width: fit-content;
-  margin: auto
+  margin: 60px auto 0
 }
 h2 {
   color: red;
