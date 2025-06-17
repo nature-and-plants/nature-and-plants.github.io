@@ -64,5 +64,6 @@ a:hover {
 .back:hover {
   text-align: left;
   background: yellow;
-  color: initial
+  color: initial;
+  text-decoration: none;
 }
