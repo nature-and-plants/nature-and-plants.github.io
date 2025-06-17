@@ -40,3 +40,29 @@ a:hover {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+.back {
+  position: fixed;
+  z-index: 5;
+  left: 10px;
+  top: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: blue;
+  width: 30px;
+  height: 25px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bolder;
+  transition: 0.5s
+}
+.back:hover {
+  text-align: left;
+  background: yellow;
+  color: initial
+}
